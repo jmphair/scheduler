@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "../src"
+    "baseUrl": "./src"
   }
 }
-
-// remember that you changed it from . to ..

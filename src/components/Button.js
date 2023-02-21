@@ -1,17 +1,13 @@
 import React from "react";
 
 import "components/Button.scss";
+import classNames from "classnames";
 
 export default function Button(props) {
-  let buttonClass = "button";
-
-  if (props.confirm) {
-    buttonClass += " button--confirm";
-  }
-
-  if (props.danger) {
-    buttonClass += " button--danger";
-  }
+  const buttonClass = classNames("button", {
+    "button--confirm": props.confirm,
+    "button--danger": props.danger
+  });
 
   return (
     <button
@@ -24,6 +20,7 @@ export default function Button(props) {
   );
 }
 
+
 // PROPS (from tuesday's exercises in storybook, Francis said to write a comment)
 
 // Base uses no props and is considered the default button
@@ -31,3 +28,27 @@ export default function Button(props) {
 // Danger uses the danger prop to apply the .button--danger modifier class
 // Clickable uses the onClick prop to handle the button click event
 // Disabled uses the disabled prop to apply the disabled attribute to the button element
+
+
+// ORIGINAL VERSION with "if statements" (from Tuesday)
+// export default function Button(props) {
+//   let buttonClass = "button";
+
+//   if (props.confirm) {
+//     buttonClass += " button--confirm";
+//   }
+
+//   if (props.danger) {
+//     buttonClass += " button--danger";
+//   }
+
+//   return (
+//     <button
+//       className={buttonClass}
+//       onClick={props.onClick}
+//       disabled={props.disabled}
+//     >
+//       {props.children}
+//     </button>
+//   );
+// }

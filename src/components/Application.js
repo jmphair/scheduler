@@ -21,8 +21,15 @@ const days = [
   },
 ];
 
+// const interviewer = {
+//   id: 1,
+//   name: "Sylvia Palmer",
+//   avatar: "https://i.imgur.com/LpaY82x.png"
+// };
+
 export default function Application(props) {
   const [day, setDay] = useState("Monday");
+  // const [interviewer, setInterviewer] = useState("")
 
   return (
     <main className="layout">

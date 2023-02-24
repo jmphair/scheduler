@@ -12,7 +12,8 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "",
     days: [],
-    appointments: {}
+    appointments: {},
+    interviewers: {} //added during lecture
   });
 
   const setDay = day => setState({ ...state, day });
@@ -27,11 +28,10 @@ export default function Application(props) {
     });
   }, []);
   
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const appointments = getAppointmentsForDay(state, state.day);
 
-  const appointmentsArray = dailyAppointments.map((appointment) => {
+  const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
-    console.log(interview);
     return (
       <Appointment 
       key={appointment.id}
@@ -65,7 +65,7 @@ export default function Application(props) {
       />
       </section>
       <section className="schedule">
-        {appointmentsArray}
+        {schedule}
         <Appointment key="last" time="5pm"/>
       </section>
     </main>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import "components/Application.scss";
+import "./Application.scss";
 import DayList from "./DayList";
-import "components/Appointment";
-import Appointment from "components/Appointment";
+import Appointment from "./Appointment";
 import axios from "axios";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors"; 
 
 export default function Application(props) {
   const [state, setState] = useState({
@@ -16,6 +15,8 @@ export default function Application(props) {
   });
 
   const setDay = day => setState({ ...state, day });
+  const appointments = getAppointmentsForDay(state, state.day);
+
   
   useEffect(() => {
     Promise.all([
@@ -27,8 +28,6 @@ export default function Application(props) {
     });
   }, []);
   
-  const appointments = getAppointmentsForDay(state, state.day);
-
   const schedule = appointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
     return (

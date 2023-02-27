@@ -44,9 +44,12 @@ export default function Application(props) {
         [id]: appointment
       };
 
-      setState({
-        ...state,
-        appointments
+      return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
+      .then(() => {
+        setState({
+          ...state,
+          appointments
+        })
       })
 
     }

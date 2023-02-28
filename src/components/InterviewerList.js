@@ -24,10 +24,14 @@ function InterviewerList(props) {
 }
 
 InterviewerList.propTypes = {
-  interviewers: PropTypes.array.isRequired,
-  setInterviewer: PropTypes.func.isRequired,
-  interviewer: PropTypes.number.isRequired
+  interviewers: PropTypes.array.isRequired
 };
+
+// InterviewerList.propTypes = {
+//   interviewers: PropTypes.array.isRequired,
+//   setInterviewer: PropTypes.func.isRequired,
+//   interviewer: PropTypes.number.isRequired
+// };
 
 export default InterviewerList;
 

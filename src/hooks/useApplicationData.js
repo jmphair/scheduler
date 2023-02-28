@@ -40,15 +40,13 @@ export default function useApplicationData(props) {
 
     const days = decrementSpots(state);
 
-    return axios
-      .put(`/api/appointments/${id}`, { interview })
-      .then(() => {
-        setState({
-          ...state,
-          appointments,
-          days,
-        });
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      setState({
+        ...state,
+        appointments,
+        days,
       });
+    });
   }
 
   function cancelInterview(id) {
@@ -64,15 +62,13 @@ export default function useApplicationData(props) {
 
     const days = incrementSpots(state);
 
-    return axios
-      .delete(`/api/appointments/${id}`, appointment)
-      .then(() => {
-        setState({
-          ...state,
-          appointments,
-          days,
-        });
+    return axios.delete(`/api/appointments/${id}`, appointment).then(() => {
+      setState({
+        ...state,
+        appointments,
+        days,
       });
+    });
   }
 
   return { state, setDay, bookInterview, cancelInterview };

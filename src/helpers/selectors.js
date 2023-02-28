@@ -40,3 +40,32 @@ export function getInterviewersForDay(state, day) {
   }
   return interviewers;
 }
+
+
+/* Get Spots Remaining */
+
+export function decrementSpots(state) {
+
+  const newDays = [];
+
+  for (const day of state.days) {
+    if (day.name === state.day) {
+      newDays.push({...day, spots: day.spots-1})
+    } else {
+      newDays.push(day);
+    }
+  }
+  return newDays;
+};
+
+export function incrementSpots(state) {
+  const newDays = [];
+  for (const day of state.days) {
+    if (day.name === state.day) {
+      newDays.push({...day, spots: day.spots+1})
+    } else {
+      newDays.push(day);
+    }
+  }
+  return newDays;
+};

@@ -39,29 +39,24 @@ export function getInterviewersForDay(state, day) {
 }
 
 /* Get Spots Remaining */
-// compare with Francis's solution?
 
-export function decrementSpots(state) {
-  const newDays = [];
+export function updateSpots(state, appointments) {
+  const index = state.days.findIndex((d) => d.name === state.day);
 
-  for (const day of state.days) {
-    if (day.name === state.day) {
-      newDays.push({ ...day, spots: day.spots - 1 });
-    } else {
-      newDays.push(day);
+  const dayObj = state.days[index];
+
+  let spots = 0;
+
+  for (const id of dayObj.appointments) {
+    const appointment = appointments[id];
+    if (!appointment.interview) {
+      spots++;
     }
   }
-  return newDays;
-}
 
-export function incrementSpots(state) {
-  const newDays = [];
-  for (const day of state.days) {
-    if (day.name === state.day) {
-      newDays.push({ ...day, spots: day.spots + 1 });
-    } else {
-      newDays.push(day);
-    }
-  }
+  const newDays = [...state.days];
+  const day = { ...dayObj, spots };
+  newDays[index] = day;
+
   return newDays;
 }

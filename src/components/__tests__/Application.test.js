@@ -33,10 +33,7 @@ describe("Application", () => {
   });
 
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
-    const { container, debug } = render(<Application />);
-    
-    await waitForElement(() => getByText(container, "Monday"));
-    fireEvent.click(getByText(container, "Monday"));
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -68,9 +65,6 @@ describe("Application", () => {
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     const { container } = render(<Application />);
 
-    await waitForElement(() => getByText(container, "Monday"));
-    fireEvent.click(getByText(container, "Monday"));
-
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointment = getAllByTestId(container, "appointment").find(appointment => queryByText(appointment, "Archie Cohen"));
@@ -92,9 +86,6 @@ describe("Application", () => {
 
   it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     const { container } = render(<Application />);
-
-    await waitForElement(() => getByText(container, "Monday"));
-    fireEvent.click(getByText(container, "Monday"));
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -127,9 +118,6 @@ describe("Application", () => {
 
     const { container } = render(<Application />);
 
-    await waitForElement(() => getByText(container, "Monday"));
-    fireEvent.click(getByText(container, "Monday"));
-
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointments = getAllByTestId(container, "appointment");
@@ -152,9 +140,6 @@ describe("Application", () => {
 
     const { container } = render(<Application />);
 
-    await waitForElement(() => getByText(container, "Monday"));
-    fireEvent.click(getByText(container, "Monday"));
-
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
     const appointment = getAllByTestId(container, "appointment").find(
@@ -168,7 +153,7 @@ describe("Application", () => {
 
     await waitForElement(() => getByText(appointment, "Error"));
 
-     expect(getByText(container, "Could not cancel appointment.")).toBeInTheDocument();
+    expect(getByText(container, "Could not cancel appointment.")).toBeInTheDocument();
 
   });
 

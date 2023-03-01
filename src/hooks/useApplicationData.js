@@ -4,7 +4,7 @@ import { decrementSpots, incrementSpots } from "helpers/selectors";
 
 export default function useApplicationData(props) {
   const [state, setState] = useState({
-    day: "",
+    day: "Monday",
     days: [],
     appointments: {},
     interviewers: {},

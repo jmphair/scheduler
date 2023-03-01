@@ -1,8 +1,6 @@
 import React from "react";
 
 import Button from "components/Button";
-// import "components/Appointment/styles.scss";
-// import classNames from "classnames";
 
 export default function Confirm(props) {
 
@@ -17,9 +15,3 @@ export default function Confirm(props) {
   );
 
 }
-
-// props:
-
-// message:String eg. "Delete the appointment?"
-// onConfirm:Function to be called when the user clicks the Confirm button
-// onCancel:Function to be called when the user clicks the Cancel button

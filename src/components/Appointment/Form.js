@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
-// import "components/Appointment/styles.scss";
-// import classNames from "classnames";
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
@@ -67,21 +65,3 @@ export default function Form(props) {
     </main>
   );
 }
-
-// props:
-
-// student:String
-// interviewers:Array
-// interviewer:Number
-// onSave:Function
-// onCancel:Function
-
-// state:
-
-// student:String
-// interviewer:Number
-
-// actions:
-
-// setStudent:Function
-// setInterviewer:Function

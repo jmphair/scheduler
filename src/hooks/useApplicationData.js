@@ -38,10 +38,9 @@ export default function useApplicationData(props) {
       [id]: appointment,
     };
 
-    return axios.put(`/api/appointments/${id}`, { interview })
-      .then(() => {
-      const days = updateSpots(state, appointments)
-      setState(prev => ({
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      const days = updateSpots(state, appointments);
+      setState((prev) => ({
         ...prev,
         appointments,
         days,
@@ -60,14 +59,13 @@ export default function useApplicationData(props) {
       [id]: appointment,
     };
 
-    return axios.delete(`/api/appointments/${id}`, appointment)
-      .then(() => {
-        const days = updateSpots(state, appointments)
-        setState(prev => ({
-          ...prev,
-          appointments,
-          days,
-        }));
+    return axios.delete(`/api/appointments/${id}`, appointment).then(() => {
+      const days = updateSpots(state, appointments);
+      setState((prev) => ({
+        ...prev,
+        appointments,
+        days,
+      }));
     });
   }
 

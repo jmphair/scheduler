@@ -47,19 +47,19 @@ npm run storybook
 
 Interview Schedule:
 
-!["Screenshot of schedule page."](https://github.com/esther-sh-choi/food-pickup-order/blob/master/public/docs/Readme%20Media/Restaurant-Orders-Functionality.gif?raw=true)
+!["Screenshot of schedule page."](https://github.com/jmphair/scheduler/blob/master/docs/appointments.png?raw=true)
 
 Add Appointment:
 
-!["Screenshot of add appointment."](https://github.com/esther-sh-choi/food-pickup-order/blob/master/public/docs/Readme%20Media/Customer-Menu-Functionality.gif?raw=true)
+!["Screenshot of add appointment."](https://github.com/jmphair/scheduler/blob/master/docs/add-appointment.png?raw=true)
 
 Error Handling:
 
-!["Screenshot of error handling."](https://github.com/esther-sh-choi/food-pickup-order/blob/master/public/docs/Readme%20Media/Mobile-Landing-Page.jpg?raw=true)
+!["Screenshot of error handling."](https://github.com/jmphair/scheduler/blob/master/docs/error-handling.png?raw=true)
 
 Confirmation Message:
 
-!["Screenshot of confirmation message."](https://github.com/esther-sh-choi/food-pickup-order/blob/master/public/docs/Readme%20Media/Mobile-Landing-Page.jpg?raw=true)
+!["Screenshot of confirmation message."](https://github.com/jmphair/scheduler/blob/master/docs/confirmation-message.png?raw=true)
 
 ## Dependencies
 

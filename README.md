@@ -42,6 +42,13 @@ npm test
 ```sh
 npm run storybook
 ```
+## Running the Scheduler App Locally
+
+In order to run the scheduler app locally please fork and clone the below and follow the readme instructions.
+
+```sh
+git clone https://github.com/lighthouse-labs/scheduler-api
+```
 
 ## Screenshots
 

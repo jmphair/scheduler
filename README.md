@@ -25,6 +25,15 @@ Both servers run concurrently; requests are proxied from the Webpack development
 
 Install dependencies with `npm install`.
 
+## Setup the Scheduler App to Run Locally
+
+In order to run the scheduler app locally please clone the below and follow the readme instructions.
+
+```sh
+git clone https://github.com/jmphair/scheduler-api
+```
+
+
 ## Running Webpack Development Server
 
 ```sh
@@ -41,13 +50,6 @@ npm test
 
 ```sh
 npm run storybook
-```
-## Running the Scheduler App Locally
-
-In order to run the scheduler app locally please fork and clone the below and follow the readme instructions.
-
-```sh
-git clone https://github.com/lighthouse-labs/scheduler-api
 ```
 
 ## Screenshots

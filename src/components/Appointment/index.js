@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "components/Appointment/styles.scss";
 import Header from "./Header";
@@ -12,7 +12,7 @@ import useVisualMode from "hooks/useVisualMode";
 
 
 export default function Appointment(props) {
-
+  const [newInterview, setNewInterview] = useState(props);
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -36,7 +36,7 @@ export default function Appointment(props) {
     transition(SAVING);
 
     props
-      .bookInterview(props.id, interview)
+      .bookInterview(props.id, interview, newInterview)
       .then(() => {transition(SHOW)})
       .catch(error => {transition(ERROR_SAVE, true)});
   }
@@ -50,22 +50,30 @@ export default function Appointment(props) {
       .catch(error => {transition(ERROR_DELETE, true)});
   }
 
+  function onAdd() {
+    transition(CREATE)
+    setNewInterview(true);
+  }
+
+  function onEdit() {
+    transition(EDIT)
+    setNewInterview(false);
+  }
+
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time}/>
-      {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+      {mode === EMPTY && <Empty onAdd={onAdd} />}
       {mode === SHOW && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={() => transition(CONFIRM)}
-          onEdit={() => transition(EDIT)}
+          onEdit={onEdit}
         />
       )}
       {mode === CREATE && (
         <Form
-          student={props.student}
-          interviewer={props.interviewer}
           interviewers={props.interviewers}
           onCancel={back}
           onSave={saveAppointment}
@@ -73,8 +81,8 @@ export default function Appointment(props) {
       )}
       {mode === EDIT && (
         <Form
-          student={props.student}
-          interviewer={props.interviewer}
+          student={props.interview.student}
+          interviewer={props.interview.interviewer.id}
           interviewers={props.interviewers}
           onCancel={back}
           onSave={saveAppointment}

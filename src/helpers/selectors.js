@@ -1,5 +1,10 @@
-/* Get Appointments For Day Function */
-
+/**
+ * Gets an array of Appointments For Day.
+ *
+ * @param {object} state represents the state of the application.
+ * @param {string} day represents the specified day.
+ * @return {array} returns the appointments array with all of the appointments for the specified day.
+ */
 export function getAppointmentsForDay(state, day) {
   const correctDay = state.days.filter((days) => days.name === day);
   const appointments = [];
@@ -14,8 +19,13 @@ export function getAppointmentsForDay(state, day) {
   return appointments;
 }
 
-/* Get Interview Function */
-
+/**
+ * Gets an Interview.
+ *
+ * @param {object} state represents the state of the application.
+ * @param {object} interview represents the specified interview.
+ * @return {object} returns an interview object with the corresponding interviewer data attached to it.
+ */
 export function getInterview(state, interview) {
   if (!interview) {
     return null;
@@ -24,8 +34,13 @@ export function getInterview(state, interview) {
   return { ...interview, interviewer: interviewerData };
 }
 
-/* Get Interview Function */
-
+/**
+ * Gets an array of Interviewers For Day.
+ *
+ * @param {object} state represents the state of the application.
+ * @param {string} day represents the specified day.
+ * @return {array} returns the interviewers array, which contains all of the interviewers for the specified day.
+ */
 export function getInterviewersForDay(state, day) {
   const correctDay = state.days.filter((eachDay) => eachDay.name === day);
   const interviewers = [];
@@ -38,8 +53,13 @@ export function getInterviewersForDay(state, day) {
   return interviewers;
 }
 
-/* Get Spots Remaining */
-
+/**
+ * Updates Appointment Spots Remaining.
+ *
+ * @param {object} state represents the state of the application.
+ * @param {object} appointments represents an object containing all the appointments of the day.
+ * @return {array}  returns a newDays array which shows the updated number of spots available for each day.
+ */
 export function updateSpots(state, appointments) {
   const index = state.days.findIndex((d) => d.name === state.day);
 
